@@ -1,0 +1,12 @@
+.full-post {
+    width: 50%;
+    margin-left: 25%;
+  }
+  
+.full-post > div {
+    margin: 15px 5px;
+    padding: 10px 15px;
+    border: 1px solid lightsalmon;
+    border-radius: 3px;
+    filter: drop-shadow(2.312px 2.509px 4.5px rgba(0,0,0,0.23));
+}

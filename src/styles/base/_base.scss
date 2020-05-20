@@ -1,0 +1,19 @@
+@import './settings';
+
+body {
+    background: $wallpaper;
+    background-size: cover;
+    background-attachment: fixed;
+    box-sizing: border-box;
+}
+
+.bloggy-app {
+  text-align: center;
+  width: 60%;
+  margin: 5% 20%;
+}
+
+hr {
+  width: 5%;
+  border: 1px dashed lightsalmon;
+}

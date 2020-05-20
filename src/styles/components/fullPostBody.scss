@@ -1,0 +1,27 @@
+.post-title {
+   font-family: sans-serif;
+   text-shadow: 2px 1px white;
+   
+    h2 {
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: .1em;
+    }
+
+    p {
+        min-height: 250px;
+        padding-bottom: 5%;
+        position: relative;
+        text-align: justify;
+        font-size: 15px;
+        text-transform: capitalize;
+    }
+
+    span {
+        position: absolute;
+        bottom: -15px;
+        right: 5px;
+        font-size: 12px;
+    }
+}
