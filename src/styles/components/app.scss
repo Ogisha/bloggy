@@ -1,0 +1,19 @@
+.bloggy-app {
+    text-align: center;
+    width: 60%;
+    margin: 5% 20%;
+
+    @media (max-width: 800px) {
+        width: 96%;
+        margin-left: 2%;
+    }
+
+    h1 {
+        color: darken(salmon, 15%);
+        letter-spacing: .05em;
+
+        @media (max-width: 600px) {
+            font-size: 18px;
+        }
+    }
+}

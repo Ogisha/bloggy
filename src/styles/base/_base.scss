@@ -5,18 +5,12 @@ body {
     background-size: cover;
     background-attachment: fixed;
     box-sizing: border-box;
-}
 
-.bloggy-app {
-  text-align: center;
-  width: 60%;
-  margin: 5% 20%;
+    @media (max-width: 800px) {
+      background: $wallpaperSmall;
+      background-size: contain;
+    }
 }
-
-.single-post {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 
 hr {
   width: 5%;

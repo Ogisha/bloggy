@@ -7,6 +7,10 @@
         text-transform: uppercase;
         font-weight: 500;
         letter-spacing: .1em;
+
+        @media (max-width: 600px) {
+            font-size: 14px;
+        }
     }
 
     p {
@@ -16,6 +20,10 @@
         text-align: justify;
         font-size: 15px;
         text-transform: capitalize;
+
+        @media (max-width: 600px) {
+            font-size: 12px;
+        }
     }
 
     span {
@@ -23,5 +31,9 @@
         bottom: -15px;
         right: 5px;
         font-size: 12px;
+
+        @media (max-width: 600px) {
+            font-size: 9px;
+        }
     }
 }

@@ -1,18 +1,45 @@
-.posts a {
-    text-decoration: none!important;
-}
-
 .posts {
     width: 54%;
     margin-left: 23%;
 
+    a {
+        text-decoration: none!important;
+    }
+
     :hover {
-        background: lighten(lightsalmon, 15%);
+        background: lighten(salmon, 15%);
         border-radius: 6px;
     }
 }
 
 .single-post {
-    padding: 2px 0;
-}
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px 0;
+    color: darken(salmon, 25%);
+    text-shadow: 1px 1px white;
+    position: relative;
 
+    h4 {
+        margin: 20px 0;
+        padding: 10px 0;
+
+        @media (max-width: 600px) {
+            font-size: 15px;
+            margin: 15px 0;
+            padding: 8px 0;
+        }
+    }
+
+    .total-comments {
+        font-size:12px;
+        position: absolute;
+        bottom: 5px;
+        right: 25%;
+
+        @media (max-width: 600px) {
+            right: 5%;
+            bottom: 8px;
+            font-size: 10px;
+        }
+    }
+}

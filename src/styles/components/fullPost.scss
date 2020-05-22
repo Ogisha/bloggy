@@ -1,6 +1,10 @@
 .full-post {
     width: 50%;
     margin-left: 25%;
+    @media (max-width: 600px) {
+      width: 60%;
+      margin-left: 20%;
+  }
   }
   
 .full-post > div {
@@ -9,4 +13,9 @@
     border: 1px solid lightsalmon;
     border-radius: 3px;
     filter: drop-shadow(2.312px 2.509px 4.5px rgba(0,0,0,0.23));
+
+    @media (max-width: 600px) {
+      margin: 15px 0px;
+      padding: 10px 0px;
+  }
 }

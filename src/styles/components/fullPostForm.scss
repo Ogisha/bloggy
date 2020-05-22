@@ -1,6 +1,12 @@
 .full-post-form {
     color: #333;
     text-shadow: 2px 1px white;
+
+    input, textarea {
+        @media (max-width: 800px) {
+            width: 90%;
+        }
+    }
 };
 
 .submit-btn-container {
