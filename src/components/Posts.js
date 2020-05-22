@@ -9,7 +9,8 @@ const Posts = (props) => (
             <SinglePost
                 id={post.id} 
                 title={post.title}
-                saveSelectedPostId={props.saveSelectedPostId} 
+                createdAt={post.createdAt}
+                text={post.text}
                 commentsNo={props.commentsNo[post.id - 1]} 
                 description={post.description}
             />

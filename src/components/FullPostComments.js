@@ -1,7 +1,8 @@
 import React from 'react';
 
 const FullPostComments = (props) => {
-    const convertTime = (x) => new Date(x).toUTCString();
+    console.log(props)
+    const convertTime = x => new Date(x).toUTCString();
 
     return (
         <div className="full-post-comments">

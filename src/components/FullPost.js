@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import FullPostBody from './FullPostBody';
 import FullPostForm from './FullPostForm';
@@ -6,7 +7,7 @@ import FullPostComments from './FullPostComments';
 
 const FullPost = (props) => {
     const [ comments, setComments ] = useState([])
-    const { id, createdAt, title, text } = props.obj;
+    const { id, createdAt, title, text } = props.activePost;
 
     useEffect(() => {
         fetch(`https://5ebd9842ec34e900161923e7.mockapi.io/post/${id}/comments`)
@@ -17,12 +18,12 @@ const FullPost = (props) => {
         })
     }, [id])
 
-    const handleCommSubmit = (obj) => setComments(comments => [obj,...comments]);
+    const handleCommSubmit = (obj) => setComments(comments => [obj,...comments])
     const handleCommentsUpdate = () => props.updateComments(id);
-
+    
     return (
         <div className="full-post">
-            <Link to="/" onClick={handleCommentsUpdate(id)}>Back</Link>
+            <Link to="/" onClick={handleCommentsUpdate}>Back</Link>
             <FullPostBody 
                 title={title} 
                 createdAt={createdAt} 
@@ -37,4 +38,7 @@ const FullPost = (props) => {
     );
 }
 
-export default FullPost;
+const mapStateToProps = state => ({
+    activePost: state.activePost
+});
+export default connect(mapStateToProps)(FullPost);

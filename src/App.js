@@ -9,15 +9,9 @@ class App extends React.Component {
     super(props);
     this.state = { 
       posts: [], 
-      commentsNo: [], 
-      selectedPostId: 0 
+      commentsNo: []
     };
-    this.saveSelectedPostId = this.saveSelectedPostId.bind(this);
     this.updateComments = this.updateComments.bind(this);
-  }
-
-  saveSelectedPostId(id) {
-    this.setState(() => ({ selectedPostId: id }));
   }
 
   updateComments(id) {
@@ -28,6 +22,7 @@ class App extends React.Component {
         tempObj[id - 1] = json.length;
         this.setState({ commentsNo: tempObj})
       })
+      .catch(err => console.log(err))
   }
 
   componentDidMount() {
@@ -38,8 +33,6 @@ class App extends React.Component {
       .then(() => this.state.posts.map(post => fetch(`https://5ebd9842ec34e900161923e7.mockapi.io/post/${post.id}/comments`)
         .then(response => response.json())
         .then(json => {
-          console.log("Post: ", post.id)
-          console.log("comments: ", json)
           numberOfComments.push(json.length);
           this.setState({ commentsNo: numberOfComments})
         })
@@ -58,7 +51,6 @@ class App extends React.Component {
               render={() => (
                 <Posts 
                   posts={this.state.posts} 
-                  saveSelectedPostId={this.saveSelectedPostId} 
                   commentsNo={this.state.commentsNo}
                 />
               )}
@@ -67,7 +59,6 @@ class App extends React.Component {
               path="/post/:id"
               render={() => (
                 <FullPost 
-                  obj={this.state.posts[this.state.selectedPostId - 1]}
                   updateComments={this.updateComments} 
                 />
               )} 

@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import nextId from "react-id-generator";
 
 const FullPostForm = (props) => {
     const [ name, saveName ] = useState("");
@@ -13,7 +12,6 @@ const FullPostForm = (props) => {
     const handleCommentSubmit = (e) => {
         e.preventDefault();
         let newComment = {
-            id: nextId(),
             postId: String(props.id),
             name,
             text,
