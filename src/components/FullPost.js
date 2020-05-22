@@ -11,14 +11,18 @@ const FullPost = (props) => {
     useEffect(() => {
         fetch(`https://5ebd9842ec34e900161923e7.mockapi.io/post/${id}/comments`)
         .then(response => response.json())
-        .then(json => setComments(json))
+        .then(json => {
+            let arrangedByCreatedAt = json.sort((a, b) => (a.createdAt > b.createdAt ?  -1 : 1))
+            setComments(arrangedByCreatedAt)
+        })
     }, [id])
 
     const handleCommSubmit = (obj) => setComments(comments => [obj,...comments]);
+    const handleCommentsUpdate = () => props.updateComments(id);
 
     return (
         <div className="full-post">
-            <Link to="/">Back</Link>
+            <Link to="/" onClick={handleCommentsUpdate(id)}>Back</Link>
             <FullPostBody 
                 title={title} 
                 createdAt={createdAt} 

@@ -7,12 +7,27 @@ import PageNotFound from './components/PageNotFound';
 class App extends React.Component {
   constructor(props){
     super(props);
-    this.state = { posts: [], commentsNo: [], selectedPostId: 0 };
+    this.state = { 
+      posts: [], 
+      commentsNo: [], 
+      selectedPostId: 0 
+    };
     this.saveSelectedPostId = this.saveSelectedPostId.bind(this);
+    this.updateComments = this.updateComments.bind(this);
   }
 
   saveSelectedPostId(id) {
     this.setState(() => ({ selectedPostId: id }));
+  }
+
+  updateComments(id) {
+    fetch(`https://5ebd9842ec34e900161923e7.mockapi.io/post/${id}/comments`)
+      .then(response => response.json())
+      .then(json => {
+        let tempObj = [...this.state.commentsNo]
+        tempObj[id - 1] = json.length;
+        this.setState({ commentsNo: tempObj})
+      })
   }
 
   componentDidMount() {
@@ -23,6 +38,8 @@ class App extends React.Component {
       .then(() => this.state.posts.map(post => fetch(`https://5ebd9842ec34e900161923e7.mockapi.io/post/${post.id}/comments`)
         .then(response => response.json())
         .then(json => {
+          console.log("Post: ", post.id)
+          console.log("comments: ", json)
           numberOfComments.push(json.length);
           this.setState({ commentsNo: numberOfComments})
         })
@@ -50,7 +67,8 @@ class App extends React.Component {
               path="/post/:id"
               render={() => (
                 <FullPost 
-                  obj={this.state.posts[this.state.selectedPostId - 1]} 
+                  obj={this.state.posts[this.state.selectedPostId - 1]}
+                  updateComments={this.updateComments} 
                 />
               )} 
             />

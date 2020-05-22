@@ -16,6 +16,6 @@ const Posts = (props) => (
         </Link>
     )}
     </div>
-);
+)
 
 export default Posts;
