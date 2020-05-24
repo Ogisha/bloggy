@@ -7,7 +7,7 @@ import FullPostComments from './FullPostComments';
 
 const FullPost = (props) => {
     const [ comments, setComments ] = useState([])
-    const { id, createdAt, title, text } = props.activePost;
+    const { id, createdAt, title, text } = props.activePost || {};
 
     useEffect(() => {
         fetch(`https://5ebd9842ec34e900161923e7.mockapi.io/post/${id}/comments`)

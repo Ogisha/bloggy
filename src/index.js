@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './redux/store';
 import App from './App';
+import * as serviceWorker from './serviceWorker';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 
@@ -17,3 +18,6 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+
+serviceWorker.unregister();

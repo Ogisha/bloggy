@@ -1,7 +1,6 @@
 import React from 'react';
 
 const FullPostComments = (props) => {
-    console.log(props)
     const convertTime = x => new Date(x).toUTCString();
 
     return (
